@@ -1,4 +1,4 @@
-package com.vault.hometask;
+package com.vault.hometask._config;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
