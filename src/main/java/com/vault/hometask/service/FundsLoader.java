@@ -1,6 +1,6 @@
 package com.vault.hometask.service;
 
-import com.vault.hometask.util.dto.LoadFundsRequest;
+import com.vault.hometask.util.dto.FundsLoadRequest;
 import com.vault.hometask.util.exceptions.DuplicateTransactionException;
 
 public interface FundsLoader {
@@ -10,5 +10,5 @@ public interface FundsLoader {
      * @param payload the load funds transaction to be saved
      * @return boolean indicating if transaction was saved successfully
      */
-    boolean loadFunds(LoadFundsRequest payload) throws DuplicateTransactionException;
+    boolean loadFunds(FundsLoadRequest payload) throws DuplicateTransactionException;
 }

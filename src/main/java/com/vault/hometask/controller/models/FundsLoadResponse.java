@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class LoadFundsResponse {
+public class FundsLoadResponse {
     public long id;
     @JsonProperty(value = "customer_id")
     public long customerId;

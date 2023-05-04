@@ -1,9 +1,9 @@
 package com.vault.hometask.controller;
 
-import com.vault.hometask.controller.models.LoadFundsPayload;
-import com.vault.hometask.controller.models.LoadFundsResponse;
+import com.vault.hometask.controller.models.FundsLoadPayload;
+import com.vault.hometask.controller.models.FundsLoadResponse;
 import com.vault.hometask.service.FundsLoader;
-import com.vault.hometask.util.dto.LoadFundsRequest;
+import com.vault.hometask.util.dto.FundsLoadRequest;
 import com.vault.hometask.util.exceptions.DuplicateTransactionException;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,10 +22,10 @@ public class LoadFundsController {
     }
 
     @PostMapping("/load")
-    public LoadFundsResponse loadFunds(@RequestBody LoadFundsPayload payload){
+    public FundsLoadResponse loadFunds(@RequestBody FundsLoadPayload payload){
         try {
-            boolean fundsLoaded = fundsLoader.loadFunds(new LoadFundsRequest(payload));
-            return new LoadFundsResponse(payload.getId(), payload.getCustomerId(), fundsLoaded);
+            boolean fundsLoaded = fundsLoader.loadFunds(new FundsLoadRequest(payload));
+            return new FundsLoadResponse(payload.getId(), payload.getCustomerId(), fundsLoaded);
         } catch (DuplicateTransactionException ex){
             log.warn("Skipping transaction with id %d because it already existed".formatted(payload.getId()));
             return null;

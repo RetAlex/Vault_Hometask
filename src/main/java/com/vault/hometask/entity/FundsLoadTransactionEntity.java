@@ -1,7 +1,6 @@
 package com.vault.hometask.entity;
 
-import com.vault.hometask.controller.models.LoadFundsPayload;
-import com.vault.hometask.util.dto.LoadFundsRequest;
+import com.vault.hometask.util.dto.FundsLoadRequest;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -17,7 +16,7 @@ import java.util.Date;
 @AllArgsConstructor
 @Table(name = "load_funds_transactions")
 @Entity
-public class LoadFundsTransactionEntity {
+public class FundsLoadTransactionEntity {
     @Id
     @Column(name="id")
     private long id;
@@ -28,7 +27,7 @@ public class LoadFundsTransactionEntity {
     @Column(name="transaction_time")
     private Date time;
 
-    public LoadFundsTransactionEntity(LoadFundsRequest payload){
+    public FundsLoadTransactionEntity(FundsLoadRequest payload){
         this.id = payload.getId();
         this.loadAmount = payload.getLoadAmount();
         this.customerId = payload.getCustomerId();
